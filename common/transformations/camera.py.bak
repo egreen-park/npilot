@@ -3,28 +3,14 @@ import numpy as np
 import common.transformations.orientation as orient
 from selfdrive.hardware import TICI
 
-import os
-
 ## -- hardcoded hardware params --
 eon_f_focal_length = 910.0
-#eon_d_focal_length = 650.0
-
-if os.path.isfile("/ONEPLUS"):
-  eon_d_focal_length = 860.0  #3T
-else:
-  eon_d_focal_length = 650.0 #lp3
-
+eon_d_focal_length = 650.0
 tici_f_focal_length = 2648.0
 tici_e_focal_length = tici_d_focal_length = 567.0 # probably wrong? magnification is not consistent across frame
 
 eon_f_frame_size = (1164, 874)
-#eon_d_frame_size = (816, 612) #lp3
-
-if os.path.isfile("/ONEPLUS"):
-  eon_d_frame_size = (1152, 864)  #3T
-else:
-  eon_d_frame_size = (816, 612) #lp3
-
+eon_d_frame_size = (816, 612)
 tici_f_frame_size = tici_e_frame_size = tici_d_frame_size = (1928, 1208)
 
 # aka 'K' aka camera_frame_from_view_frame
