@@ -628,11 +628,11 @@ void NvgWindow::drawSpeed(QPainter &p) {
 
   QString speed;
   speed.sprintf("%.0f", cur_speed);
-  configFont(p, "Open Sans", 176, "Bold");
-  drawTextWithColor(p, rect().center().x(), 230, speed, color);
+  configFont(p, "Open Sans", 200, "Bold");
+  drawTextWithColor(p, rect().center().x(), 230 + 540, speed, color);
 
-  configFont(p, "Open Sans", 66, "Regular");
-  drawText(p, rect().center().x(), 310, s->scene.is_metric ? "km/h" : "mph", 200);
+//  configFont(p, "Open Sans", 66, "Regular");
+//  drawText(p, rect().center().x(), 310, s->scene.is_metric ? "km/h" : "mph", 200);
 }
 
 static QRect getRect(QPainter &p, int flags, QString text) {
@@ -681,8 +681,8 @@ void NvgWindow::drawMaxSpeed(QPainter &p) {
   {
       int w = 120;
       int h = 54;
-      int x = (width() + (bdr_s*2))/2 - w/2 - bdr_s;
-      int y = 40 - bdr_s;
+      int x = (width() + (bdr_s*2))/2 - w/2 - bdr_s - 596;
+      int y = 40 - bdr_s + 430;
 
       p.setOpacity(1.f);
       p.drawPixmap(x, y, w, h, activeNDA == 1 ? ic_nda : ic_hda);
@@ -690,7 +690,7 @@ void NvgWindow::drawMaxSpeed(QPainter &p) {
 
 
   const int x_start = 30;
-  const int y_start = 30;
+  const int y_start = 530; // 270 + 200 //
 
   int board_width = 210;
   int board_height = 384;
@@ -922,7 +922,7 @@ void NvgWindow::drawThermal(QPainter &p) {
 
   int w = 192;
   int x = width() - (30 + w);
-  int y = 330;
+  int y = 450;
 
   QString str;
   QRect rect;
